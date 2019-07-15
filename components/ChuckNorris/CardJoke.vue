@@ -1,4 +1,4 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <v-card v-if="joke">
     <v-layout align-center justify-center row fill-height>
       <v-card-title primary-title>

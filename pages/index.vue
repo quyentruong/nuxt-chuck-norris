@@ -1,6 +1,6 @@
 <template>
-  <v-layout align-center justify-center row fill-height>
-    <v-flex text-xs-center xs3>
+  <v-layout align-center justify-center fill-height>
+    <v-flex lg3 md4 sm10 xs10>
       <Categories />
       <CardJoke />
     </v-flex>

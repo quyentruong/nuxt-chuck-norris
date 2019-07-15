@@ -58,7 +58,7 @@ export default {
   data() {
     return {
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       items: [
         // {
@@ -72,9 +72,14 @@ export default {
         //   to: '/inspire'
         // },
         {
-          icon: 'face',
-          title: 'Chuck Norris',
+          icon: 'category',
+          title: 'Category',
           to: '/'
+        },
+        {
+          icon: 'search',
+          title: 'Search',
+          to: '/search'
         }
       ],
       miniVariant: false,
