@@ -1,13 +1,13 @@
 <template>
-  <v-layout>
-    <v-flex text-xs-center>
+  <v-layout align-center justify-center row fill-height>
+    <v-flex text-xs-center xs4>
       <Categories />
       <v-card>
         <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
+          {{ category }}
         </v-card-title>
         <v-card-text>
-          <p>assa</p>
+          <CardJoke />
         </v-card-text>
       </v-card>
     </v-flex>
@@ -15,7 +15,15 @@
 </template>
 <script>
 import Categories from '../components/ChuckNorris/Categories'
+import CardJoke from '../components/ChuckNorris/CardJoke'
+
 export default {
-  components: { Categories }
+  components: { CardJoke, Categories },
+  computed: {
+    category() {
+      return this.$store.state.chuck_norris.category
+    }
+
+  }
 }
 </script>
