@@ -1,15 +1,19 @@
 <template>
   <v-container fluid grid-list-xl>
     <v-layout wrap align-center>
-      <template v-if="categoriesExist">
-        <v-select
-          v-model="selected"
-          :items="categories"
-          box
-          label="Categories"
-          @change="setCategory"
-        />
-      </template>
+      <v-select
+        v-if="categoriesExist"
+        v-model="selected"
+        :items="categories"
+        box
+        label="Categories"
+        @change="setCategory"
+      />
+      <v-progress-circular
+        v-else
+        indeterminate
+        color="red"
+      />
     </v-layout>
   </v-container>
 </template>
@@ -44,13 +48,14 @@ export default {
       this.fetchSomething()
     }
     this.selected = this.categories[0]
-    // eslint-disable-next-line no-console
   },
+
   methods: {
     async fetchSomething() {
       const ip = await this.$axios.$get('https://api.chucknorris.io/jokes/categories')
-      // ip.unshift('random')
+      ip.unshift('random')
       this.categories = ip
+      this.selected = this.categories[0]
     },
     setCategory() {
       this.$store.commit('chuck_norris/setCategory', this.selected)

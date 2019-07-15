@@ -1,6 +1,6 @@
 export const state = () => ({
-  // category: 'random'
-  category: 'animal'
+  category: 'random'
+  // category: 'animal'
 })
 
 export const mutations = {

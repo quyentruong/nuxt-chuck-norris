@@ -1,18 +1,12 @@
 <template>
   <v-layout align-center justify-center row fill-height>
-    <v-flex text-xs-center xs4>
+    <v-flex text-xs-center xs3>
       <Categories />
-      <v-card>
-        <v-card-title class="headline">
-          {{ category }}
-        </v-card-title>
-        <v-card-text>
-          <CardJoke />
-        </v-card-text>
-      </v-card>
+      <CardJoke />
     </v-flex>
   </v-layout>
 </template>
+
 <script>
 import Categories from '../components/ChuckNorris/Categories'
 import CardJoke from '../components/ChuckNorris/CardJoke'

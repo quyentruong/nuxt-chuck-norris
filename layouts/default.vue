@@ -15,12 +15,12 @@
     </v-navigation-drawer>
     <v-toolbar :clipped-left="clipped" fixed app>
       <v-toolbar-side-icon @click="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>{{ `chevron_${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>web</v-icon>
-      </v-btn>
+      <!--      <v-btn icon @click.stop="miniVariant = !miniVariant">-->
+      <!--        <v-icon>{{ `chevron_${miniVariant ? 'right' : 'left'}` }}</v-icon>-->
+      <!--      </v-btn>-->
+      <!--      <v-btn icon @click.stop="clipped = !clipped">-->
+      <!--        <v-icon>web</v-icon>-->
+      <!--      </v-btn>-->
       <!-- <v-btn icon @click.stop="fixed = !fixed">
         <v-icon>remove</v-icon>
       </v-btn>-->
@@ -48,7 +48,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
+      <span>Quyen Truong &copy; 2019</span>
     </v-footer>
   </v-app>
 </template>
@@ -61,16 +61,16 @@ export default {
       drawer: false,
       fixed: false,
       items: [
-        {
-          icon: 'apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'add_comment',
-          title: 'Inspire',
-          to: '/inspire'
-        },
+        // {
+        //   icon: 'apps',
+        //   title: 'Welcome',
+        //   to: '/'
+        // },
+        // {
+        //   icon: 'add_comment',
+        //   title: 'Inspire',
+        //   to: '/inspire'
+        // },
         {
           icon: 'face',
           title: 'Chuck Norris',
@@ -80,7 +80,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'Chuck Norris'
     }
   }
 }
