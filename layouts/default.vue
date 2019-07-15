@@ -74,7 +74,7 @@ export default {
         {
           icon: 'face',
           title: 'Chuck Norris',
-          to: '/chuck_norris'
+          to: '/'
         }
       ],
       miniVariant: false,
