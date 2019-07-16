@@ -32,7 +32,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico'
+      href: `${process.env.DEPLOY_ENV === 'GH_PAGES' ? '/nuxt-chuck-norris' : ''}/favicon.ico`
     },
     {
       rel: 'stylesheet',
