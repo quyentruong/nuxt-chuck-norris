@@ -83,10 +83,16 @@ export default {
       success: colors.green.accent3
     }
   },
+  generate: {
+    fallback: true // if you want to use '404.html' instead of the default '200.html'
+  },
   /*
    ** Build configuration
    */
   build: {
+    filenames: {
+      chunk: ({ isDev }) => isDev ? '[name].js' : '[id].[chunkhash].js'
+    },
     /*
      ** You can extend webpack config here
      */
