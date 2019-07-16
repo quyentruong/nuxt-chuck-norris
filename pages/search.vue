@@ -2,26 +2,36 @@
   <v-container>
     <v-layout align-center justify-center fill-height mb-5>
       <v-flex xl3 lg3 md6 sm6>
-        <v-text-field
-          v-model="searchText"
-          prepend-icon="search"
-          hide-details
-          single-line
-          clear-icon="cancel"
-          clearable
-          @click:prepend="searchJoke"
-          @keyup.enter.exact="searchJoke"
-        />
+        <v-form
+          ref="form"
+          v-model="valid"
+          lazy-validation
+          @submit.prevent
+        >
+          <v-text-field
+            v-model="searchText"
+            :rules="searchTextRule"
+            label="Search Text"
+            prepend-icon="search"
+            single-line
+            clear-icon="cancel"
+            clearable
+            required
+            @click:prepend="searchJoke"
+            @keyup.enter.exact="searchJoke"
+          />
+        </v-form>
       </v-flex>
     </v-layout>
     <template v-if="searchPress">
       <template v-if="jokeListExist" />
       <v-layout v-else align-center justify-center>
-        Fetching Jokes &nbsp;&nbsp;&nbsp;
-        <v-progress-circular
-          indeterminate
-          color="red"
-        />
+        <span v-if="total!==0">Fetching Jokes &nbsp;&nbsp;&nbsp;
+          <v-progress-circular
+            indeterminate
+            color="red"
+          /></span>
+        <span v-else class="display-1"><v-icon>sentiment_very_dissatisfied</v-icon> &nbsp;&nbsp;&nbsp; Not Found</span>
       </v-layout>
     </template>
     <v-layout row wrap>
@@ -73,9 +83,15 @@ export default {
     }
   },
   data: () => ({
+    valid: true,
+    total: 1,
     searchText: '',
     jokeList: [],
-    searchPress: false
+    searchPress: false,
+    searchTextRule: [
+      v => !!v || 'Text is required',
+      v => (v && v.length > 2) || 'Text must be more than 2 characters'
+    ]
   }),
   computed: {
     jokeListExist() {
@@ -88,6 +104,7 @@ export default {
         this.$axios.$get(`https://api.chucknorris.io/jokes/search?query=${searchText}`).then((res) => {
           // eslint-disable-next-line no-console
           // console.log(res.result)
+          this.total = res.total
           this.jokeList = res.result
         })
       } else {
@@ -95,10 +112,13 @@ export default {
       }
     },
     searchJoke() {
-      this.jokeList = []
-      this.fetchSomething(this.searchText)
-      this.searchText = ''
-      this.searchPress = true
+      if (this.$refs.form.validate()) {
+        this.total = 1
+        this.jokeList = []
+        this.fetchSomething(this.searchText)
+        this.searchText = ''
+        this.searchPress = true
+      }
     }
   }
 }
