@@ -1,10 +1,12 @@
 <template>
-  <v-layout align-center justify-center fill-height>
-    <v-flex lg3 md4 sm10 xs10>
-      <Categories />
-      <CardJoke />
-    </v-flex>
-  </v-layout>
+  <v-container>
+    <v-layout align-center justify-center fill-height>
+      <v-flex lg3 md4 sm10 xs10>
+        <Categories />
+        <CardJoke />
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
