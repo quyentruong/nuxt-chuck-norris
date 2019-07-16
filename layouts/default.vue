@@ -91,6 +91,21 @@ export default {
       rightDrawer: false,
       title: 'Chuck Norris'
     }
+  },
+  watch: {
+    switchTheme(newTheme) {
+      const parsed = JSON.stringify(newTheme)
+      sessionStorage.setItem('switchTheme', parsed)
+    }
+  },
+  created() {
+    if (sessionStorage.getItem('switchTheme')) {
+      try {
+        this.switchTheme = JSON.parse(sessionStorage.getItem('switchTheme'))
+      } catch (e) {
+        sessionStorage.removeItem('switchTheme')
+      }
+    }
   }
 }
 </script>
