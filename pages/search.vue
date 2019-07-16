@@ -116,8 +116,8 @@ export default {
         this.total = 1
         this.jokeList = []
         this.fetchSomething(this.searchText)
-        this.searchText = ''
         this.searchPress = true
+        this.$refs.form.reset()
       }
     }
   }
