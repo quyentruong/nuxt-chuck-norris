@@ -54,7 +54,7 @@
                 />
               </v-flex>
             </v-layout>
-            <v-card-text class="px-0">
+            <v-card-text>
               {{ joke.value }}
             </v-card-text>
           </v-card>

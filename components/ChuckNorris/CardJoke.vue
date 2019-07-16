@@ -42,6 +42,9 @@ export default {
   computed: {
     getCategory() {
       return this.$store.state.chuck_norris.category
+    },
+    getRequestJoke() {
+      return this.$store.state.chuck_norris.requestJoke
     }
   },
   watch: {
@@ -51,6 +54,14 @@ export default {
         this.startInterval(newCat)
       } else {
         this.fetchSomething(newCat)
+      }
+    },
+    getRequestJoke(newCat) {
+      this.removeInterval()
+      if (this.switchJoke) {
+        this.startInterval(this.getCategory)
+      } else {
+        this.fetchSomething(this.getCategory)
       }
     },
     switchJoke() {

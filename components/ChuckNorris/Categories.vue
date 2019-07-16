@@ -4,16 +4,20 @@
       <v-select
         v-if="categoriesExist"
         v-model="selected"
+        append-outer-icon="search"
         :items="categories"
         box
         label="Categories"
+        @click:append-outer="setRequestJoke"
         @change="setCategory"
       />
-      <v-progress-circular
-        v-else
-        indeterminate
-        color="red"
-      />
+      <div v-else>
+        Fetching Categories &nbsp;&nbsp;&nbsp;
+        <v-progress-circular
+          indeterminate
+          color="red"
+        />
+      </div>
     </v-layout>
   </v-container>
 </template>
@@ -58,6 +62,9 @@ export default {
     },
     setCategory() {
       this.$store.commit('chuck_norris/setCategory', this.selected)
+    },
+    setRequestJoke() {
+      this.$store.commit('chuck_norris/setRequestJoke', new Date())
     }
   }
 }
