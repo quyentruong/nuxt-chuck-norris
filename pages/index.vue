@@ -14,6 +14,12 @@ import Categories from '../components/ChuckNorris/Categories'
 import CardJoke from '../components/ChuckNorris/CardJoke'
 
 export default {
+  name: 'Index',
+  head() {
+    return {
+      titleTemplate: '%s - ' + this.$options.name
+    }
+  },
   components: { CardJoke, Categories },
   computed: {
     category() {

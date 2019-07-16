@@ -49,7 +49,6 @@ export default {
     }
     this.selected = this.categories[0]
   },
-
   methods: {
     async fetchSomething() {
       const ip = await this.$axios.$get('https://api.chucknorris.io/jokes/categories')

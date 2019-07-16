@@ -1,18 +1,22 @@
 <template>
   <v-card v-if="joke">
-    <v-layout align-center justify-center row fill-height>
+    <v-layout align-center justify-center row>
       <v-card-title primary-title>
         <h2 class="headline">
           {{ getCategory }} joke
         </h2>
       </v-card-title>
     </v-layout>
-    <v-layout align-center justify-center row fill-height>
-      <v-img
-        :src="joke.icon_url"
-        width="256"
-        height="256"
-      />
+    <v-layout align-center justify-center row>
+      <v-flex offset-lg5 offset-xl5 offset-xs5 offset-sm5 offset-md5>
+        <v-img
+          align-center
+          :src="joke.icon_url"
+          :lazy-src="joke.icon_url"
+          width="64"
+          height="64"
+        />
+      </v-flex>
     </v-layout>
     <v-card-text class="card-text">
       {{ joke.value }}
@@ -60,7 +64,10 @@ export default {
   created() {
     this.fetchSomething(this.getCategory)
   },
-
+  beforeDestroy() {
+    this.removeInterval()
+    this.$store.commit('chuck_norris/setCategory', 'random')
+  },
   methods: {
     fetchSomething(category) {
       if (category === 'random') {
