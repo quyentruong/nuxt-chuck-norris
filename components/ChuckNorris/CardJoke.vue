@@ -22,11 +22,16 @@
       {{ joke.value }}
     </v-card-text>
     <v-card-actions>
-      <v-switch v-model="switchJoke" color="red">
-        <template v-slot:label>
-          Run each 5s: <v-progress-circular :indeterminate="switchJoke" color="red" :value="0" size="24" class="ml-2" />
-        </template>
-      </v-switch>
+      <v-switch v-model="switchJoke" color="red" />
+      <v-progress-circular
+        :rotate="-90"
+        :size="100"
+        :width="15"
+        :value="value"
+        color="red"
+      >
+        {{ value/20 }}s
+      </v-progress-circular>
     </v-card-actions>
   </v-card>
 </template>
@@ -37,7 +42,9 @@ export default {
   data: () => ({
     joke: '',
     switchJoke: false,
-    intervalCount: 0
+    intervalCount: 0,
+    intervalCircle: 0,
+    value: 0
   }),
   computed: {
     getCategory() {
@@ -92,19 +99,24 @@ export default {
       }
     },
     startInterval(category) {
-      this.intervalCount = setInterval(() => {
-        this.fetchSomething(category)
-      }, 5000)
+      this.intervalCircle = setInterval(() => {
+        if (this.value === 100) {
+          this.fetchSomething(category)
+          this.value = 0
+        }
+        this.value += 20
+      }, 1000)
     },
     removeInterval() {
-      clearInterval(this.intervalCount)
+      clearInterval(this.intervalCircle)
+      this.value = 0
     }
   }
 }
 </script>
 
 <style scoped>
-.card-text{
-  font-size: 18px;
-}
+    .card-text {
+        font-size: 18px;
+    }
 </style>

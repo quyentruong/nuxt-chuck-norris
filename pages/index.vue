@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-layout align-center justify-center fill-height>
-      <v-flex lg3 md4 sm10 xs10>
+      <v-flex xl5 lg5 md9 sm10 xs10>
         <Categories />
         <CardJoke />
       </v-flex>
