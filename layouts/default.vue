@@ -58,7 +58,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       switchTheme: true,
       clipped: false,
@@ -93,12 +93,12 @@ export default {
     }
   },
   watch: {
-    switchTheme(newTheme) {
+    switchTheme (newTheme) {
       const parsed = JSON.stringify(newTheme)
       sessionStorage.setItem('switchTheme', parsed)
     }
   },
-  created() {
+  created () {
     if (sessionStorage.getItem('switchTheme')) {
       try {
         this.switchTheme = JSON.parse(sessionStorage.getItem('switchTheme'))

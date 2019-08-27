@@ -5,10 +5,10 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setCategory(state, newCat) {
+  setCategory (state, newCat) {
     state.category = newCat
   },
-  setRequestJoke(state, newReq) {
+  setRequestJoke (state, newReq) {
     state.requestJoke = newReq
   }
 }

@@ -16,27 +16,27 @@
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/axios": "^5.6.0",
     "@nuxtjs/vuetify": "0.5.5",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.9.1"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^0.0.1",
-    "@nuxtjs/eslint-module": "^0.0.1",
-    "babel-eslint": "^10.0.1",
+    "@nuxtjs/eslint-config": "^1.1.2",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "babel-eslint": "^10.0.3",
     "cross-env": "^5.2.0",
-    "eslint": "^5.15.1",
-    "eslint-config-standard": ">=12.0.0",
-    "eslint-plugin-import": ">=2.16.0",
-    "eslint-plugin-jest": ">=22.3.0",
+    "eslint": "^6.2.2",
+    "eslint-config-standard": ">=14.0.1",
+    "eslint-plugin-import": ">=2.18.2",
+    "eslint-plugin-jest": ">=22.15.2",
     "eslint-plugin-node": ">=8.0.1",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-promise": ">=4.0.1",
-    "eslint-plugin-standard": ">=4.0.0",
+    "eslint-plugin-standard": ">=4.0.1",
     "eslint-plugin-vue": "^5.2.2",
     "nodemon": "^1.18.9",
     "push-dir": "^0.4.1",
-    "stylus": "^0.54.5",
+    "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "vuetify": "^1.5.16"
   }

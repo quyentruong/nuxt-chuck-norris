@@ -47,15 +47,15 @@ export default {
     value: 0
   }),
   computed: {
-    getCategory() {
+    getCategory () {
       return this.$store.state.chuck_norris.category
     },
-    getRequestJoke() {
+    getRequestJoke () {
       return this.$store.state.chuck_norris.requestJoke
     }
   },
   watch: {
-    getCategory(newCat) {
+    getCategory (newCat) {
       this.removeInterval()
       if (this.switchJoke) {
         this.startInterval(newCat)
@@ -63,7 +63,7 @@ export default {
         this.fetchSomething(newCat)
       }
     },
-    getRequestJoke(newCat) {
+    getRequestJoke (newCat) {
       this.removeInterval()
       if (this.switchJoke) {
         this.startInterval(this.getCategory)
@@ -71,7 +71,7 @@ export default {
         this.fetchSomething(this.getCategory)
       }
     },
-    switchJoke() {
+    switchJoke () {
       if (this.switchJoke) {
         this.startInterval(this.getCategory)
       } else {
@@ -79,15 +79,15 @@ export default {
       }
     }
   },
-  created() {
+  created () {
     this.fetchSomething(this.getCategory)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.removeInterval()
     this.$store.commit('chuck_norris/setCategory', 'random')
   },
   methods: {
-    fetchSomething(category) {
+    fetchSomething (category) {
       if (category === 'random') {
         this.$axios.$get(`https://api.chucknorris.io/jokes/random`).then((res) => {
           this.joke = res
@@ -98,7 +98,7 @@ export default {
         })
       }
     },
-    startInterval(category) {
+    startInterval (category) {
       this.intervalCircle = setInterval(() => {
         if (this.value === 100) {
           this.fetchSomething(category)
@@ -107,7 +107,7 @@ export default {
         this.value += 20
       }, 1000)
     },
-    removeInterval() {
+    removeInterval () {
       clearInterval(this.intervalCircle)
       this.value = 0
     }

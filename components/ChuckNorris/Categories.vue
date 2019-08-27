@@ -31,17 +31,17 @@ export default {
     selected: ''
   }),
   computed: {
-    categoriesExist() {
+    categoriesExist () {
       return this.categories.length > 0
     }
   },
   watch: {
-    categories(newCat) {
+    categories (newCat) {
       const parsed = JSON.stringify(newCat)
       sessionStorage.setItem('categories', parsed)
     }
   },
-  created() {
+  created () {
     if (sessionStorage.getItem('categories')) {
       try {
         this.categories = JSON.parse(sessionStorage.getItem('categories'))
@@ -54,16 +54,16 @@ export default {
     this.selected = this.categories[0]
   },
   methods: {
-    async fetchSomething() {
+    async fetchSomething () {
       const ip = await this.$axios.$get('https://api.chucknorris.io/jokes/categories')
       ip.unshift('random')
       this.categories = ip
       this.selected = this.categories[0]
     },
-    setCategory() {
+    setCategory () {
       this.$store.commit('chuck_norris/setCategory', this.selected)
     },
-    setRequestJoke() {
+    setRequestJoke () {
       this.$store.commit('chuck_norris/setRequestJoke', new Date())
     }
   }

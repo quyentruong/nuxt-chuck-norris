@@ -15,14 +15,14 @@ import CardJoke from '../components/ChuckNorris/CardJoke'
 
 export default {
   name: 'Index',
-  head() {
+  head () {
     return {
       titleTemplate: '%s - ' + this.$options.name
     }
   },
   components: { CardJoke, Categories },
   computed: {
-    category() {
+    category () {
       return this.$store.state.chuck_norris.category
     }
 

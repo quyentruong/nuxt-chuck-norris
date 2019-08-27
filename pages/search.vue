@@ -77,7 +77,7 @@
 <script>
 export default {
   name: 'Search',
-  head() {
+  head () {
     return {
       titleTemplate: '%s - ' + this.$options.name
     }
@@ -94,12 +94,12 @@ export default {
     ]
   }),
   computed: {
-    jokeListExist() {
+    jokeListExist () {
       return this.jokeList.length > 0
     }
   },
   methods: {
-    fetchSomething(searchText) {
+    fetchSomething (searchText) {
       if (searchText.length > 0) {
         this.$axios.$get(`https://api.chucknorris.io/jokes/search?query=${searchText}`).then((res) => {
           // eslint-disable-next-line no-console
@@ -111,7 +111,7 @@ export default {
         this.jokeList = []
       }
     },
-    searchJoke() {
+    searchJoke () {
       if (this.$refs.form.validate()) {
         this.total = 1
         this.jokeList = []
